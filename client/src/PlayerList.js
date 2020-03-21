@@ -3,11 +3,11 @@ import PlayerCard from './PlayerCard'
 
 const PlayerList = props => {
     console.log('props in playerList',props)
-    console.log('props.players in PL',props.players)
+    // console.log('props.players in PL',props.players)
 
     return(
         <div>
-           <p>players</p>
+           <h1>Players</h1>
            <div>
                 {props.players.map(pl =>
                         <PlayerCard
