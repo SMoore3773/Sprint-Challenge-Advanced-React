@@ -12,10 +12,9 @@ it('renders without crashing', () => {
 });
 
 test('renders PlayerCard on component', async() => {
-
   const container = render (<PlayerCard />)
   container.getByText(/home country/i)
-
+  
 });
 
 test('renders PlayerList', async()=>{
@@ -23,3 +22,5 @@ test('renders PlayerList', async()=>{
   const container = render (<PlayerList key={players.id} players={players}/>)
   container.getByText(/players/i)
 });
+
+
