@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {render} from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import PlayerList from './PlayerList';
 import PlayerCard from'./PlayerCard';
+import Header from './Header';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -23,4 +24,8 @@ test('renders PlayerList', async()=>{
   container.getByText(/players/i)
 });
 
-
+test('darkmode button functioning', ()=>{
+  const container = render (<Header />)
+  const click = {button:0}
+  fireEvent.click(container.getByText('Dark Mode Toggle'),click)
+})

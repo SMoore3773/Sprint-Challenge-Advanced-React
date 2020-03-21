@@ -11,9 +11,9 @@ const Header =()=>{
     
     return(
         <div>
-            <div
+            <button
             onClick={toggleMode}
-            >Dark Mode</div>
+            >Dark Mode Toggle</button>
         </div>
     )
 }
