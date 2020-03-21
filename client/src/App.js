@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import PlayerList from './PlayerList';
+import Header from './Header';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state ={
+      players:[]
+    }
+  }
+  componentDidMount() {
+    fetch('http://localhost:5000/api/players')
+    .then(res => res.json())
+    .then(res => this.setState({players: res}))
+    .catch(err => console.log('catch error in api request CDM', err))
+  }
+
+  render(){
+    console.log('this.state in app.js',this.state)
+    return (
+      <div>
+        <Header />
+        <PlayerList 
+          players = {this.state.players}
+        />
+      </div>
+    )
+  }
 }
 
 export default App;
